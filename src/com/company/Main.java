@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         chooseLanguage();
         enterPin();
+        chooseAccount();
         menuFunctions();
         receiptOptions();
     }
@@ -115,6 +116,22 @@ public class Main {
                 System.out.println("Invalid function. Please try another option");
                 break;
 
+        }
+    }
+    public static void chooseAccount() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please choose which account You would like to perform the following actions to: (1-primary account; 2-savings; 3-other)");
+        int account = input.nextInt();
+        switch (account) {
+            case 1:
+                System.out.println("Primary account LV0474XX1231354456 chosen \n");
+                break;
+            case 2:
+                System.out.println("Savings account LV0474XX1231354456S chosen \n");
+                break;
+            case 3:
+                System.out.println("Other account LV0474XX1231354456S chosen \n");
+                break;
         }
     }
 }
