@@ -111,10 +111,10 @@ public class Main {
                 break;
             case '$':
                 Random random4 = new Random();
-                double balance5 = random4.nextInt(10000);
-                System.out.println("Please enter an amount you want to withdraw in USD (5, 10, 50 USD available");
+                int balance5 = random4.nextInt(10000);
+                System.out.println("Please enter an amount you want to withdraw in USD (5, 10, 50 USD available)");
                 Scanner withdraw2 = new Scanner(System.in);
-                double balance4 = withdraw2.nextDouble();
+                int balance4 = withdraw2.nextInt();
                 double newbalance = (balance5 - balance4*1.16);
                 if (balance5 < balance4) {
                     System.out.println("No sufficient funds");
