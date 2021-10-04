@@ -18,42 +18,37 @@ public class Main {
         int language = input.nextInt();
         switch (language) {
             case 1:
-                System.out.println("Izvēlieties galveno izvelni \n");
+                System.out.println("Valoda izvēlēta!\n");
                 break;
             case 2:
-                System.out.println("Choose from the main menu \n");
+                System.out.println("Language chosen!\n");
                 break;
             case 3:
-                System.out.println("Выберите операцию \n");
+                System.out.println("язик выбран!");
                 break;
         }
-
-
     }
 
     public static void receiptOptions() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Would You like to receive a receipt? \n" +
-                " receive receipt and exit the system - press 1 \n" +
-                " exit the system without receipt - press 2 \n" +
-                " return to the menu - press 3");
+        System.out.println("\n Would You like to receive a receipt? \n" +
+                " y - yes, to receive it!\n" +
+                " n - no, save the paper!\n");
 
-        int receiptOption = input.nextInt();
+        char receiptOption = input.next().charAt(0);
 
         switch (receiptOption) {
-            case 1:
-                System.out.println("please check the receipt printer for your receipt and don't forget to take your credit card! \n" +
-                        " Have a nice day! Until the next time!");
+            case 'y':
+                System.out.println("printing the receipt! Don't forget to take Your card! \n" +
+                        " Have a nice day!");
                 break;
-            case 2:
-                System.out.println("Please take your credit card! \n" +
-                        " Have a nice day! Until the next time!");
+            case 'n':
+                System.out.println("no receipt to print! Please take your credit card! \n" +
+                        " Have a nice day!");
                 break;
-            case 3:
-                System.out.println("Sorry! Did not work! Take your card from the terminal and start over if needed!");
-                break;
+
             default:
-                System.out.println("Error");
+                System.out.println("Wrong entry!");
         }
     }
 
@@ -71,6 +66,7 @@ public class Main {
                 break;
             } else if (tries >= 2) {
                 System.out.println("YOU HAVE RUN OUT OF TRIES. ACCOUNT LOCKED. \n");
+                System.exit(0);
                 break;
             }
             tries++;
@@ -81,6 +77,7 @@ public class Main {
         System.out.println("Choose a function");
         System.out.println("Check balance (b)");
         System.out.println("Withdraw (w)");
+        System.out.println("Cash withdraw in USD ($)");
         System.out.println("Deposit (d)");
         Scanner option = new Scanner(System.in);
         char function = option.next().charAt(0);
@@ -112,15 +109,29 @@ public class Main {
                 int deposit = cash.nextInt();
                 System.out.println("Your new balance is " + (balance3 + deposit) + " EUR");
                 break;
+            case '$':
+                Random random4 = new Random();
+                int balance5 = random4.nextInt(10000);
+                System.out.println("Please enter an amount you want to withdraw in USD");
+                Scanner withdraw2 = new Scanner(System.in);
+                int balance4 = withdraw2.nextInt();
+                double newbalance = Math.round(balance5 - balance4*1.16);
+                if (balance5 < balance4) {
+                    System.out.println("No sufficient funds");
+                } else {
+                    System.out.println(" " + (balance4*1.16) + " USD has been withdrawn. \n" +
+                            "Your new balance is " + newbalance + "Euro");
+                }
+                break;
             default:
                 System.out.println("Invalid function. Please try another option");
                 break;
-
         }
     }
+
     public static void chooseAccount() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please choose which account You would like to perform the following actions to: (1-primary account; 2-savings; 3-other)");
+        System.out.println("Please choose which account You would like to perform the following actions to: \n (1-primary account; 2-savings; 3-other)");
         int account = input.nextInt();
         switch (account) {
             case 1:
